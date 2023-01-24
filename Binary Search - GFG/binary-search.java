@@ -31,10 +31,22 @@ import java.util.*;
 class Solution {
     int binarysearch(int arr[], int n, int k) {
         // code here
-        for(int i = 0; i < n; i++){
-            if(arr[i] == k){
-                return i;
+        // for(int i = 0; i < n; i++){
+        //     if(arr[i] == k){
+        //         return i;
+        //     }
+        // }
+        // return -1;
+        int low = 0;
+        int high = n - 1;
+        while(low <= high){
+            int mid = (high - low)/2 + low;
+            if(arr[mid] == k){
+                return mid;
             }
+            else if (arr[mid] > k){
+                high = mid - 1;
+            } else low = mid + 1;
         }
         return -1;
     }
